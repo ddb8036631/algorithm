@@ -1,4 +1,4 @@
-package bruteforce;
+package 완전탐색;
 
 import java.awt.Point;
 import java.util.ArrayList;

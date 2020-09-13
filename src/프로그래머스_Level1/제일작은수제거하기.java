@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º_Level1;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤_Level1;
 
 import java.util.ArrayList;
 
-public class Á¦ÀÏÀÛÀº¼öÁ¦°ÅÇÏ±â {
+public class ì œì¼ì‘ì€ìˆ˜ì œê±°í•˜ê¸° {
 	public static ArrayList<Integer> solution(int[] arr) {
 		ArrayList<Integer> list = new ArrayList<>();
 		Integer min = Integer.MAX_VALUE;

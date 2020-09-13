@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º_Level1;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤_Level1;
 
 import java.util.Scanner;
 
-public class Á÷»ç°¢Çüº°Âï±â {
+public class ì§ì‚¬ê°í˜•ë³„ì°ê¸° {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();

@@ -1,6 +1,6 @@
-package ÇÁ·Î±×·¡¸Ó½º_Level1;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤_Level1;
 
-public class ÃÖ´ë°ø¾à¼ö¿ÍÃÖ¼Ò°ø¹è¼ö {
+public class ìµœëŒ€ê³µì•½ìˆ˜ì™€ìµœì†Œê³µë°°ìˆ˜ {
     public static int[] solution(int n, int m) {
         int[] answer = new int[2];
         int nm = n*m;

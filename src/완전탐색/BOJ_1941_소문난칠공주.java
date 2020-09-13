@@ -1,4 +1,4 @@
-package bruteforce;
+package 완전탐색;
 
 import java.util.Arrays;
 import java.util.Scanner;

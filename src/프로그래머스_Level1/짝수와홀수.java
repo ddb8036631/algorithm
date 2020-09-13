@@ -1,6 +1,6 @@
-package ÇÁ·Î±×·¡¸Ó½º_Level1;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤_Level1;
 
-public class Â¦¼ö¿ÍÈ¦¼ö {
+public class ì§ìˆ˜ì™€í™€ìˆ˜ {
 	public static String solution(int num) {
 		String answer = "";
 		if (num % 2 == 0)

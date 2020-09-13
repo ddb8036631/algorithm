@@ -1,6 +1,6 @@
-package ÇÁ·Î±×·¡¸Ó½º_Level1;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤_Level1;
 
-public class ÀÚ¸´¼ö´õÇÏ±â {
+public class ìë¦¿ìˆ˜ë”í•˜ê¸° {
     public static int solution(int n) {
         int answer = 0;
         while(n != 0) {
