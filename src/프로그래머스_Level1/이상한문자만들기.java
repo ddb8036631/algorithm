@@ -3,22 +3,25 @@ package 프로그래머스_Level1;
 public class 이상한문자만들기 {
 	public static String solution(String s) {
 		String answer = "";
-		String[] strings = s.split(" ");
-		
-		for (int i = 0; i < strings.length; i++) {
-			if(strings[i].equals(""))
-				continue;
-			for (int j = 0; j < strings[i].length(); j++) {
-				char ch = strings[i].charAt(j);
-				if (j % 2 == 0) {
-					answer += Character.toUpperCase(ch);
+		String[] strs = s.split("");
+		int cnt = 0;
+
+		for (int i = 0; i < strs.length; i++) {
+			if (strs[i].equals(" ")) {
+				cnt = 0;
+			} else {
+				if (cnt % 2 == 0) {
+					cnt++;
+					strs[i] = strs[i].toUpperCase();
 				} else {
-					answer += Character.toLowerCase(ch);
+					cnt++;
+					strs[i] = strs[i].toLowerCase();
 				}
 			}
-			answer += " ";
+			answer += strs[i];
 		}
-		return answer.trim();
+
+		return answer;
 	}
 
 	public static void main(String[] args) {
