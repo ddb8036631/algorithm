@@ -6,43 +6,23 @@ public class 스킬트리 {
 	public static int solution(String skill, String[] skill_trees) {
 		int answer = 0;
 
-		for (String skill_tree : skill_trees) {
-			boolean[] visit = new boolean[26];
+		for (int i = 0; i < skill_trees.length; i++) {
 			boolean flag = true;
+			String[] skill_tree = skill_trees[i].split("");
+			int cnt = 0;
 
-			int i = 0;
-			int j = 0;
-
-			while (true) {
-				if (i == skill.length() || j == skill_tree.length())
-					break;
-
-				if (visit[skill.charAt(i) - 'A']) {
+			for (int j = 0; j < skill_tree.length; j++) {
+				if (cnt < skill.indexOf(skill_tree[j])) {
 					flag = false;
 					break;
+				} else if (cnt == skill.indexOf(skill_tree[j])) {
+					cnt++;
 				}
-
-				if (skill.contains(skill_tree.charAt(j) + "")) {
-					visit[skill.charAt(i) - 'A'] = true;
-					if (skill.charAt(i) == skill_tree.charAt(j)) {
-						i++;
-						j++;
-					} else {
-						if (skill.charAt(i) < skill_tree.charAt(j)) {
-							flag = false;
-							break;
-						}
-						j++;
-					}
-				} else
-					j++;
 			}
-
-			if (flag)
+			if (flag) {
 				answer++;
-
+			}
 		}
-
 		return answer;
 	}
 
@@ -52,8 +32,8 @@ public class 스킬트리 {
 		String skill = "CBD";
 //		String[] skill_trees = { "BACDE", "CBADF", "AECB", "BDA" };
 //		String[] skill_trees = { "CED" };
-		String[] skill_trees = { "ASF" };
-
+//		String[] skill_trees = { "ASF" };
+		String[] skill_trees = {"B"};
 		System.out.println(solution(skill, skill_trees));
 	}
 }
