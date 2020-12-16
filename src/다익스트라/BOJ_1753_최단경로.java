@@ -2,23 +2,27 @@ package 다익스트라;
 
 import java.util.*;
 
-public class BOJ_1916_최소비용구하기 {
-    static int N, M;
-    static List<Edge>[] adj;
+public class BOJ_1753_최단경로 {
+    static int V, E, K;
     static int[] dist;
-    static boolean[] visit;
+    static boolean[] used;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        V = sc.nextInt();
+        E = sc.nextInt();
+        K = sc.nextInt();
 
-        N = sc.nextInt();
-        M = sc.nextInt();
+        dist = new int[V + 1];
+        used = new boolean[V + 1];
 
-        adj = new ArrayList[N + 1];
-        for (int i = 1; i <= N; i++)
+        List<Edge>[] adj = new ArrayList[V + 1];
+        for (int i = 1; i <= V; i++) {
             adj[i] = new ArrayList<>();
+            dist[i] = 987654321;
+        }
 
-        for (int i = 0; i < M; i++) {
+        for (int i = 0; i < E; i++) {
             int u, v, w;
             u = sc.nextInt();
             v = sc.nextInt();
@@ -27,13 +31,6 @@ public class BOJ_1916_최소비용구하기 {
             adj[u].add(new Edge(v, w));
         }
 
-        int start = sc.nextInt();
-        int dest = sc.nextInt();
-
-        dist = new int[N + 1];
-        Arrays.fill(dist, 987654321);
-
-        visit = new boolean[N + 1];
 
         PriorityQueue<Edge> pq = new PriorityQueue<>(new Comparator<Edge>() {
             @Override
@@ -42,22 +39,23 @@ public class BOJ_1916_최소비용구하기 {
             }
         });
 
-        dist[start] = 0;
-        pq.add(new Edge(start, 0));
+        dist[K] = 0;
+        pq.add(new Edge(K, 0));
 
         while (!pq.isEmpty()) {
             Edge now = pq.poll();
-            visit[now.vertex] = true;
+            used[now.vertex] = true;
 
             for (Edge next : adj[now.vertex]) {
-                if (!visit[next.vertex] && dist[next.vertex] > dist[now.vertex] + next.weight) {
+                if (!used[next.vertex] && dist[next.vertex] > dist[now.vertex] + next.weight) {
                     dist[next.vertex] = dist[now.vertex] + next.weight;
                     pq.add(new Edge(next.vertex, dist[next.vertex]));
                 }
             }
         }
 
-        System.out.println(dist[dest]);
+        for (int i = 1; i <= V; i++)
+            System.out.println(dist[i] == 987654321 ? "INF" : dist[i]);
     }
 
     static class Edge {
