@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-public class BOJ_9372_상근이의여행_kruskal {
+public class BOJ_9372_상근이의여행_Kruskal {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int TC = sc.nextInt();

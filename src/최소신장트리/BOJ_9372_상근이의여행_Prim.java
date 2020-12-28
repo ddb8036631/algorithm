@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class BOJ_9372_상근이의여행_prim {
+public class BOJ_9372_상근이의여행_Prim {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int TC = sc.nextInt();
