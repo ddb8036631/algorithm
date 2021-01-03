@@ -1,4 +1,4 @@
-package 카카오_2021;
+package 카카오2021;
 
 import java.util.Scanner;
 
