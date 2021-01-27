@@ -1,8 +1,11 @@
 package 카카오2018;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class 파일명정렬 {
     public static String[] solution(String[] files) {
@@ -22,16 +25,13 @@ public class 파일명정렬 {
 
                 int f1_idx = f1_head.length(), f2_idx = f2_head.length();
 
-                if (f1_head.toString().compareTo(f2_head.toString()) > 0) return 1;
-                else if (f1_head.toString().compareTo(f2_head.toString()) < 0) return -1;
-                else {
-                    int f1_number = makeNumber(f1, f1_idx);
-                    int f2_number = makeNumber(f2, f2_idx);
+                if (!f1_head.toString().equals(f2_head.toString()))
+                    return f1_head.toString().compareTo(f2_head.toString());
 
-                    if (f1_number > f2_number)  return 1;
-                    else if (f1_number < f2_number)  return -1;
-                    else return 0;
-                }
+                int f1_number = makeNumber(f1, f1_idx);
+                int f2_number = makeNumber(f2, f2_idx);
+
+                return Integer.compare(f1_number, f2_number);
             }
         };
 
@@ -76,6 +76,34 @@ public class 파일명정렬 {
             this.fileName = fileName;
             this.index = index;
         }
+    }
+
+    public static String[] solution2(String[] files) {
+        Pattern pattern = Pattern.compile("(?<HEAD>\\D+)(?<NUMBER>\\d+)(?<TAIL>.*)");
+
+        Arrays.sort(files, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                Matcher matcher1 = pattern.matcher(o1.toLowerCase());
+                Matcher matcher2 = pattern.matcher(o2.toLowerCase());
+
+                matcher1.find();
+                matcher2.find();
+
+                System.out.println(matcher1.group("HEAD"));
+                System.out.println(matcher2.group("HEAD"));
+
+                if(!matcher1.group("HEAD").equals(matcher2.group("HEAD")))
+                    return matcher1.group("HEAD").compareTo(matcher2.group("HEAD"));
+
+                int n1 = Integer.parseInt(matcher1.group("NUMBER"));
+                int n2 = Integer.parseInt(matcher2.group("NUMBER"));
+
+                return n1 == n2 ? 0 : Integer.compare(n1, n2);
+            }
+        });
+
+        return files;
     }
 
     public static void main(String[] args) {

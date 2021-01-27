@@ -1,6 +1,7 @@
 package 트리;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BOJ_11437_LCA {
@@ -12,6 +13,7 @@ public class BOJ_11437_LCA {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         N = sc.nextInt();
 
         adj = new ArrayList[N + 1];
@@ -35,6 +37,8 @@ public class BOJ_11437_LCA {
         for (int i = 0; i < M; i++) {
             System.out.println(lca(sc.nextInt(), sc.nextInt()));
         }
+
+        System.out.println(Arrays.toString(parent));
     }
 
     private static void dfs(int from, int d) {
