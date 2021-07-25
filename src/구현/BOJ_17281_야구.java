@@ -8,8 +8,8 @@ import java.util.Arrays;
 public class BOJ_17281_야구 {
     static int N;
     static int[][] info;
-    static int[] order;
-    static boolean[] occupied;
+    static int[] picked;
+    static boolean[] used;
     static boolean[] roo = new boolean[4];
     static int answer;
 
@@ -17,15 +17,15 @@ public class BOJ_17281_야구 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
         info = new int[N][9];
-        order = new int[9];
-        occupied = new boolean[9];
+        picked = new int[9];
+        used = new boolean[9];
 
         for (int i = 0; i < N; i++) {
             info[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         }
 
-        order[3] = 0;
-        occupied[3] = true;
+        picked[3] = 0;
+        used[3] = true;
 
         perm(1);
 
@@ -40,13 +40,13 @@ public class BOJ_17281_야구 {
         }
 
         for (int i = 0; i < 9; i++) {
-            if (!occupied[i]) {
-                occupied[i] = true;
-                order[i] = idx;
+            if (!used[i]) {
+                used[i] = true;
+                picked[i] = idx;
 
                 perm(idx + 1);
 
-                occupied[i] = false;
+                used[i] = false;
             }
         }
     }
@@ -60,7 +60,7 @@ public class BOJ_17281_야구 {
             int outCnt = 0;
 
             while (outCnt < 3) {
-                int command = info[inning][order[strikerIdx]];
+                int command = info[inning][picked[strikerIdx]];
 
                 switch (command) {
                     case 0:
